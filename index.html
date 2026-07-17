@@ -21,12 +21,10 @@ body{
 
 .container{
     text-align:center;
-    animation:fade 1.2s ease;
-    padding:20px;
 }
 
 .flower{
-    font-size:60px;
+    font-size:64px;
     animation:bounce 2s infinite;
 }
 
@@ -38,26 +36,23 @@ body{
 .sub{
     margin-top:10px;
     font-size:15px;
-    opacity:.7;
+    opacity:.65;
 }
 
-button{
-    margin-top:20px;
-    padding:12px 26px;
-    border:none;
-    border-radius:30px;
-    background:#ff8fab;
-    color:white;
-    font-size:16px;
-    font-family:inherit;
-    cursor:pointer;
-    transition:.25s ease;
-    box-shadow:0 8px 18px rgba(255,143,171,.25);
+.loader{
+    width:180px;
+    height:4px;
+    background:#eee;
+    margin:30px auto 0;
+    border-radius:10px;
+    overflow:hidden;
 }
 
-button:hover{
-    transform:translateY(-2px) scale(1.04);
-    background:#ff7396;
+.bar{
+    height:100%;
+    width:0%;
+    background:#d86d7b;
+    animation:load 3s linear forwards;
 }
 
 @keyframes bounce{
@@ -65,12 +60,11 @@ button:hover{
     50%{transform:translateY(-8px);}
 }
 
-@keyframes fade{
-    from{opacity:0;}
-    to{opacity:1;}
+@keyframes load{
+    from{width:0%;}
+    to{width:100%;}
 }
 </style>
-
 </head>
 
 <body>
@@ -83,28 +77,22 @@ button:hover{
 A little surprise awaits...
 </div>
 
-<div class="sub" id="status">
+<div class="sub">
 Just a second 🌿
+</div>
+
+<div class="loader">
+    <div class="bar"></div>
 </div>
 
 </div>
 
 <script>
-
 const destination = "https://egreet.in/bouquet/831066e9-a5de-4a60-ab37-748db9ec7204";
 
 setTimeout(() => {
-
-    document.getElementById("status").innerHTML = 
-        <button id="open">🌷 Open your bouquet</button>
-    ;
-
-    document.getElementById("open").addEventListener("click", () => {
-        window.location.href = destination;
-    });
-
+    window.location.href = destination;
 }, 3000);
-
 </script>
 
 </body>
