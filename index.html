@@ -22,6 +22,7 @@ body{
 .container{
     text-align:center;
     animation:fade 1.2s ease;
+    padding:20px;
 }
 
 .flower{
@@ -37,7 +38,26 @@ body{
 .sub{
     margin-top:10px;
     font-size:15px;
-    opacity:.65;
+    opacity:.7;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 26px;
+    border:none;
+    border-radius:30px;
+    background:#ff8fab;
+    color:white;
+    font-size:16px;
+    font-family:inherit;
+    cursor:pointer;
+    transition:.25s ease;
+    box-shadow:0 8px 18px rgba(255,143,171,.25);
+}
+
+button:hover{
+    transform:translateY(-2px) scale(1.04);
+    background:#ff7396;
 }
 
 @keyframes bounce{
@@ -63,7 +83,7 @@ body{
 A little surprise awaits...
 </div>
 
-<div class="sub">
+<div class="sub" id="status">
 Just a second 🌿
 </div>
 
@@ -71,12 +91,19 @@ Just a second 🌿
 
 <script>
 
-// Replace this with your egreet link
 const destination = "https://egreet.in/bouquet/831066e9-a5de-4a60-ab37-748db9ec7204";
 
-setTimeout(()=>{
-    window.location.replace(destination);
-},3000);
+setTimeout(() => {
+
+    document.getElementById("status").innerHTML = 
+        <button id="open">🌷 Open your bouquet</button>
+    ;
+
+    document.getElementById("open").addEventListener("click", () => {
+        window.location.href = destination;
+    });
+
+}, 3000);
 
 </script>
 
